@@ -36,13 +36,12 @@
   /* Layout Properties | Layout-Eigenschaften */
   .page_margins { width: auto;  width: 740px; max-width: 90em; background: #fff; }
   .page { padding: 10px 15px 10px 10px; }
-  #header { padding: 5px 2em 1em 20px; color: #000; background: #fff; }
+  #header { padding: 5px 2em 1em 20px; color: #000; background: transparent; }
   #topnav { margin: -20px; color: #aaa; background: transparent; }
   #nav { overflow:hidden; }
   div.hlist {  }
-  #main { margin: 10px 0; background: #fff; }
+  #main { margin: 10px 0; background: #fff; border-top: 10px solid #3b69ad;}
   #footer { color:#666; background: #f9f9f9; border-top: 5px #efefef solid; text-align: center; width:auto; width:740px; }
-
   /* (en) navigation: horizontal adjustment | (de) horizontale Ausrichtung  */
   #nav ul { margin-left: 20px; }
 
@@ -54,7 +53,7 @@
    *
    */
 
-  #main { padding: 0px 20px }
+  #main { padding: 20px 20px }
 	
   /*-------------------------------------------------------------------------*/
 

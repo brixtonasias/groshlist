@@ -122,7 +122,7 @@
 
   /*--- Links ----------------------------------------------------------------------------------------- */
 
-  a { color:#4D87C7; background:transparent; text-decoration:none; }
+  a { color:blue; background:transparent; text-decoration:none; }
   a:visited  { color:#036; }
 
   /* (en) maximum constrast for tab focus - change with great care */
