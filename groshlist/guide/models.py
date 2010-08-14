@@ -39,6 +39,7 @@ class Category(models.Model):
 	>>> c = Category()
 	>>> c.name = 'Fresh Meat'
 	>>> c.slug = 'fresh_meat'
+	>>> c.order = 1
 	>>> c.description = 'Where the fresh meat can be found'
 	>>> c.supermarket = Supermarket.objects.create(name='Lidl', city='Muehlacker', user=User.objects.create(username='testusercat', password='testpw'))
 	>>> print c
@@ -50,6 +51,7 @@ class Category(models.Model):
 	slug = models.SlugField(unique=True)
 	description = models.TextField(blank=True)
 	supermarket = models.ForeignKey(Supermarket, related_name='categories')
+	order = models.IntegerField(blank=False, null=False, unique=True)
 	
 	def __unicode__(self):
 		return '%s' % self.name
