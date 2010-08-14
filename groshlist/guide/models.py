@@ -118,18 +118,12 @@ class ShoppingList(models.Model):
 	"""
 	name = models.CharField(max_length=255)
 	description = models.TextField(blank=True)
-	date_created = models.DateTimeField(editable=False)
-	date_updated = models.DateTimeField(editable=False)
+	date_created = models.DateTimeField(auto_now_add=True, editable=False)
+	date_updated = models.DateTimeField(auto_now=True, editable=False)
 	user = models.ForeignKey(User, related_name='shopping_lists')
 	
 	def __unicode__(self):
 		return self.name
-	
-	def save(self, *args, **kwargs):
-		if not self.id:
-			self.date_created = datetime.datetime.now()
-		self.date_updated = datetime.datetime.now()
-		super(ShoppingList, self).save(*args, **kwargs)
 
 
 class ShoppingItem(models.Model):
