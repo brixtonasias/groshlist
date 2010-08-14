@@ -23,6 +23,7 @@
 
   body { overflow-y: scroll; }
 
+
   /*-------------------------------------------------------------------------*/
 
   /* (en) Marginal areas & page background */
@@ -30,17 +31,17 @@
   body { background: #3b69ad none; padding: 10px 0; }
 
   /* Layout Alignment | Layout-Ausrichtung */
-  .page_margins { margin: 0 auto; }
+  .page_margins, #footer { margin: 0 auto; }
 
   /* Layout Properties | Layout-Eigenschaften */
   .page_margins { width: auto;  width: 740px; max-width: 90em; background: #fff; }
   .page { padding: 10px 15px 10px 10px; }
-  #header { padding: 45px 2em 1em 20px; color: #000; background: #fff; }
-  #topnav { color: #aaa; background: transparent; }
+  #header { padding: 5px 2em 1em 20px; color: #000; background: #fff; }
+  #topnav { margin: -20px; color: #aaa; background: transparent; }
   #nav { overflow:hidden; }
   div.hlist {  }
   #main { margin: 10px 0; background: #fff; }
-  #footer { padding: 10px 20px; color:#666; background: #f9f9f9; border-top: 5px #efefef solid; }
+  #footer { color:#666; background: #f9f9f9; border-top: 5px #efefef solid; text-align: center; width:auto; width:740px; }
 
   /* (en) navigation: horizontal adjustment | (de) horizontale Ausrichtung  */
   #nav ul { margin-left: 20px; }
