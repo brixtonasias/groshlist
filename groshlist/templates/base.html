@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>My market guide - mymagui.de</title>
+    <title>{% block title %} My market guide - mymagui.de {% endblock %} </title>
     <link rel="shortcut icon" href="{{ STATIC_URL }}imgs/favicon.ico" type="image/x-icon"/>
 
     <link rel="stylesheet" href="{{ STATIC_URL }}css/groshlist.css" type="text/css" media="all" charset="utf-8">
@@ -17,18 +17,27 @@
 	<![endif]-->
 </head>
 
+
 <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}blog{% endblock %}">
 
 <div class="page_margins">
-{% block body %}
     <div id="border-top">
       <div id="edge-tl"></div>
       <div id="edge-tr"></div>
     </div>
     <div class="page">
       <div id="header" role="banner">
+		<div id="header">
+		        <div id="topnav">
+		          <!-- start: skip link navigation -->
+		          <a class="skip" title="skip link" href="#navigation">Skip to the navigation</a><span class="hideme">.</span>
+		          <a class="skip" title="skip link" href="#content">Skip to the content</a><span class="hideme">.</span>
+		          <!-- end: skip link navigation --><a href="#">Login</a> | <a href="#">Contact</a> | <a href="#">Imprint</a>
+		        </div>
+		      </div>
+	
         <div id="logo">
-                <a href="/"><img src="{{ STATIC_URL }}imgs/logo_640.png" alt="mymagui.de" /></a>
+                <a href="/"><img src="{{ STATIC_URL }}imgs/logo_640_2.png" alt="mymagui.de" /></a>
         </div>
         <div id="topnav">
             <!-- start: skip link navigation -->
@@ -44,9 +53,9 @@
         <div class="hlist">
           <!-- main navigation: horizontal list -->
           <ul>
-            <li><a href="#"><img src="{{ STATIC_URL }}imgs/button_blog.png" /></a></li>
-            <li><a href="#"><img src="{{ STATIC_URL }}imgs/button_projects.png" /></a></li>
-            <li><a href="/about"><img src="{{ STATIC_URL }}imgs/button_about.png" /></a></li>
+            <li><a href="#">Some</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="/about">Here</a></li>
           </ul>
         </div>
       </div>
@@ -65,10 +74,10 @@
       <div id="edge-bl"></div>
       <div id="edge-br"></div>
     </div>
-{% endblock %}
 </div>
             <!-- begin: #footer -->
 <div id="footer">
+	Developed for the <a href="http://www.djangodash.com">Djangodash 2010</a> by Team <a href="http://djangodash.com/teams/xiii/">XIII</a>.
 </div>
 
 </body>
