@@ -61,12 +61,6 @@
 				<a href="/logout">Logout</a><br/>
 				{% endif %}
 			</ul>
-			{% if user.is_authenticated %}
-			    <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
-			{% else %}
-			    <p>Welcome, new user. Please <a href="/login">log in</a>.</p>
-			{% endif %}
-			
           </div>
         </div>
         <div id="col3">

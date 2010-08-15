@@ -24,7 +24,7 @@ urlpatterns = patterns('',
     (r'^imprint/', 'guide.views.imprint'),
 
 	(r'^market/create', 'guide.views.market'),
-	(r'^market/', 'guide.views.market'),
+	(r'^market/$', 'guide.views.market'),
 	(r'^$', 'guide.views.index'),
 )
 

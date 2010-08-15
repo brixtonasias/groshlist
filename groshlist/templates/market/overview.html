@@ -4,11 +4,15 @@
 
 {% block content %}
 
-<form method="post" action="{% url guide.views.market %}">{% csrf_token %}
-	<table>
-	{{ form.as_table }}
-	</table>
-<input type="submit" value="Register" />
-</form>
+<h2>My current supermarkets</h2>
 
+<table>
+{% for market in object_list %}
+<tr>
+	<td>{{ market.name }}</td>
+	<td>{{ market.city }}</td>
+	<td><a href="{% url guide.views.market %}detail/{{ market.id }}">Detail</a></td>
+</tr>
+{% endfor %}
+</table>
 {% endblock %}

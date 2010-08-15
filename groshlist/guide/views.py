@@ -1,8 +1,8 @@
 from django.conf import settings
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import Context, loader, RequestContext
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render_to_response
 
@@ -18,7 +18,7 @@ def index(request):
 	return render_to_response('site/homepage.html', {'STATIC_URL': settings.STATIC_URL}, RequestContext(request))
 
 
-@login_required(redirect_field_name='/market')
+@login_required(redirect_field_name='next')
 def market(request):	
 	if request.method == 'POST':
 		form = SupermarketForm(request.POST)
@@ -68,7 +68,7 @@ def userlogin(request):
 		form = LoginForm()
 		
 	c.update({'STATIC_URL': settings.STATIC_URL, 'form': form,})
-		
+	
 	return render_to_response('registration/login.html', c)
 
 
