@@ -4,6 +4,8 @@ import os
 
 PROJECT_ROOT = os.path.dirname(__file__)
 
+LOGIN_URL='/login'
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
