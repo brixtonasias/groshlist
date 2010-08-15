@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} {{ block.super }} - Edit supermarket {% endblock %}
+
+{% block content %}
+
+<h2>Edit supermarket: {{ market }}</h2>
+
+<form method="post" action="{% url guide.views.market_edit %}">{% csrf_token %}
+	<table>
+	{{ form.as_table }}
+	</table>
+<input type="submit" value="Register" />
+</form>
+
+
+{% endblock %}
