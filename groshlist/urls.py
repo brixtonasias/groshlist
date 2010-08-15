@@ -17,10 +17,9 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
 	# (r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'registration/login.html'}),
 
-
-
-
-    (r'^login/', 'guide.views.login'),
+    (r'^login/$', 'guide.views.userlogin'),
+    (r'^logout/$', 'guide.views.userlogout'),
+    (r'^register/', 'guide.views.register'),
     (r'^contact/', 'guide.views.contact'),
     (r'^imprint/', 'guide.views.imprint'),
 
