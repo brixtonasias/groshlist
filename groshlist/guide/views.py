@@ -19,7 +19,7 @@ def index(request):
 
 
 @login_required(redirect_field_name='next')
-def market(request):	
+def createmarket(request, id):
 	if request.method == 'POST':
 		form = SupermarketForm(request.POST)
 		rc = RequestContext(request)
@@ -32,12 +32,23 @@ def market(request):
 			description = form.cleaned_data['description']
 			market = Supermarket(name=name, street=street, zipcode=zipcode, city=city, description=description, user=user)
 			market.save()
+			return HttpResponseRedirect('/market')
 	else:
 		form = SupermarketForm()
-	
+		return render_to_response('market/detail.')
+
+
+@login_required(redirect_field_name='next')
+def market_detail(request, market_id):
+	market = Supermarket.objects.get(id=market_id)
+	return render_to_response('market/detail.html', {'STATIC_URL': settings.STATIC_URL, 'market': market}, RequestContext(request))
+
+
+@login_required(redirect_field_name='next')
+def market(request):
 	markets = Supermarket.objects.all()
 	rc = RequestContext(request)
-	return render_to_response('market/overview.html', {'object_list': markets, 'STATIC_URL': settings.STATIC_URL, 'form': form}, rc)
+	return render_to_response('market/overview.html', {'object_list': markets, 'STATIC_URL': settings.STATIC_URL}, rc)
 
 
 def userlogout(request):
