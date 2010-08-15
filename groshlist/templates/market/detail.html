@@ -5,9 +5,14 @@
 {% block content %}
 
 <h2>Supermarket: {{ market }}</h2>
-
-
-
-{{ market }}
-
+<p>
+<table>
+<td>{{ market.name }}</td>
+<td>{{ market.street }}</td>
+<td>{{ market.city }}</td>
+<td>{{ market.zipcode }}</td>
+<td>{{ market.description }}</td>
+</table>
+<a href="{% url guide.views.market %}edit/{{ market.id }}">
+</p>
 {% endblock %}
