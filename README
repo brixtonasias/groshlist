@@ -1,1 +1,9 @@
-Nothing to see here yet - just the initial commit for this repo.
+This was my attempt for the Djangodash 2010. Unfortunately I did not finish the project in time.
+
+<h2>What is the target of this?</h2>
+
+The goal was to create a web application that enables users to create shopping lists. Not the usual shopping lists. Due to the users entering 'their' supermarket(s) to the application the shopping list will be sorted in the same order the items appear in the supermarket. So no need to walk back to the entrance when you reached the other end of the market. 
+
+<p>
+Development on this will continue from time to time and hopefully someday this application will be released. If you are interested in helping contact me or fork the repo.
+</p>
