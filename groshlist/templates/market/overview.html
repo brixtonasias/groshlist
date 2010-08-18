@@ -12,8 +12,6 @@
 	<td>{{ market.name }}</td>
 	<td>{{ market.street }}</td>
 	<td>{{ market.city }}</td>
-	<td>{{ market.zipcode }}</td>
-	<td>{{ market.description }}</td>
 	<td><a href="{% url guide.views.market %}detail/{{ market.id }}">Detail</a></td>
 </tr>
 {% endfor %}
