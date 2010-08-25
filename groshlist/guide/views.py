@@ -88,32 +88,6 @@ def userlogout(request):
 		context_instance=RequestContext(request)
 	)
 
-def userlogin(request):	
-	c = {}
-	c.update(csrf(request))
-	
-	if request.method == 'POST':
-		form = LoginForm(request.POST)
-		if form.is_valid():
-			user_name = form.cleaned_data['username']
-			user_pass = form.cleaned_data['password']
-			user = authenticate(username=user_name, password=user_pass)
-			if user is not None:
-				if user.is_active:
-					login(request, user)
-				else:
-					print "Account disabled"
-			else:
-				print "Username + Password incorrect"
-			rc = RequestContext(request, c)
-			return render_to_response('site/contact.html', {'STATIC_URL': settings.STATIC_URL}, rc)
-	else:
-		form = LoginForm()
-		
-	c.update({'STATIC_URL': settings.STATIC_URL, 'form': form,})
-	
-	return render_to_response('registration/login.html', c)
-
 
 def register(request):
 	c = {}
