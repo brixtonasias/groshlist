@@ -5,12 +5,12 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>{% block title %} My market guide - mymagui.de {% endblock %} </title>
-    <link rel="shortcut icon" href="{{ STATIC_URL }}imgs/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ MEDIA_URL }}static/imgs/favicon.ico" type="image/x-icon"/>
 
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/groshlist.css" type="text/css" media="all" charset="utf-8">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}static/css/groshlist.css" type="text/css" media="all" charset="utf-8">
 
 	<!--[if IE 6]>
-	<script src="{{ STATIC_URL }}js/DD_belatedPNG_0.0.7a-min.js"></script>
+	<script src="{{ MEDIA_URL }}js/DD_belatedPNG_0.0.7a-min.js"></script>
 	<script>
 		DD_belatedPNG.fix('#bleeder, .logo');
 	</script>
@@ -35,7 +35,7 @@
 		      </div>
 	
         <div id="logo">
-                <a href="/"><img src="{{ STATIC_URL }}imgs/logo_640_2.png" alt="mymagui.de" /></a>
+                <a href="/"><img src="{{ MEDIA_URL }}static/imgs/logo_640_2.png" alt="mymagui.de" /></a>
         </div>
         <div id="topnav">
             <!-- start: skip link navigation -->
@@ -54,7 +54,7 @@
 			<ul>
 				{% if not user.is_authenticated %}
 				<a href="/register">Register</a><br/>
-				<a href="/login">Login</a><br/>
+				<a href="/accounts/login">Login</a><br/>
 				{% else %}
 				<a href="/market">Market</a><br/>
 				<a href="/shoppinglist">List</a><br/>
