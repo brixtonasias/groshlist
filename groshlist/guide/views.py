@@ -4,7 +4,7 @@ from django.template import Context, loader, RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 
 from django.core.context_processors import csrf
 
@@ -15,7 +15,9 @@ from guide.forms import RegisterForm
 
 
 def index(request):
-	return render_to_response('site/homepage.html', {'STATIC_URL': settings.STATIC_URL}, RequestContext(request))
+	return render_to_response('site/homepage.html', {
+		'STATIC_URL': settings.STATIC_URL
+	}, context_instance=RequestContext(request))
 
 
 @login_required(redirect_field_name='next')
@@ -56,26 +58,35 @@ def market_edit(request, market_id):
 			return HttpResponseRedirect('/market/detail.html?market_id=%s' % market.id)
 	else:
 		form = SupermarketForm(market)
-		return render_to_response('market/edit.html', {'STATIC_URL': settings.STATIC_URL, 'market': market}, RequestContext(request))
+		return render_to_response('market/edit.html', {
+			'STATIC_URL': settings.STATIC_URL, 
+			'market': market
+		}, context_instance=RequestContext(request))
 
 
 @login_required(redirect_field_name='next')
 def market_detail(request, market_id):
 	market = Supermarket.objects.get(id=market_id)
-	return render_to_response('market/detail.html', {'STATIC_URL': settings.STATIC_URL, 'market': market}, RequestContext(request))
+	return render_to_response('market/detail.html', {
+		'STATIC_URL': settings.STATIC_URL, 
+		'market': market
+	}, context_instance=RequestContext(request))
 
 
 @login_required(redirect_field_name='next')
 def market(request):
 	markets = Supermarket.objects.all()
-	rc = RequestContext(request)
-	return render_to_response('market/overview.html', {'object_list': markets, 'STATIC_URL': settings.STATIC_URL}, rc)
+	return render_to_response('market/overview.html', {
+		'object_list': markets,
+	}, context_instance=RequestContext(request))
 
 
 def userlogout(request):
 	logout(request)
 	rc = RequestContext(request)
-	return render_to_response('site/homepage.html', {'STATIC_URL': settings.STATIC_URL}, rc)
+	return render_to_response('site/homepage.html', 
+		context_instance=RequestContext(request)
+	)
 
 def userlogin(request):	
 	c = {}
@@ -127,18 +138,27 @@ def register(request):
 					user.set_password(user_pass)
 					user.save()
 					rc = RequestContext(request, c)
-					return render_to_response('registration/login.html', {'STATIC_URL': settings.STATIC_URL}, rc)
+					return render_to_response('registration/login.html', {
+						'STATIC_URL': settings.STATIC_URL
+					}, context_instance=RequestContext(request))
 	else:
 		form = RegisterForm()
 		
 	c.update({'STATIC_URL': settings.STATIC_URL, 'form': form,})
 	rc = RequestContext(request, c)
-	return render_to_response('registration/register.html', {'form': form, 'STATIC_URL': settings.STATIC_URL}, rc)
+	return render_to_response('registration/register.html', {
+		'form': form,
+		'STATIC_URL': settings.STATIC_URL
+	}, context_instance=RequestContext(request))
 
 
 def contact(request):
-	return render_to_response('site/contact.html', {'STATIC_URL': settings.STATIC_URL})
+	return render_to_response('site/contact.html', 
+		context_instance=RequestContext(request)
+	)
 
 
 def imprint(request):
-	return render_to_response('site/imprint.html', {'STATIC_URL': settings.STATIC_URL})
+	return render_to_response('site/imprint.html', 
+		context_instance=RequestContext(request)
+	)
