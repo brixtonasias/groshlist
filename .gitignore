@@ -1,4 +1,5 @@
 *.pyc
 *.db
+*.tmproj
 mymaguide/
 groshlist/guide/migrations
