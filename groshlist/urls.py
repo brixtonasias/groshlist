@@ -18,8 +18,9 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
 	# (r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'registration/login.html'}),
-
-    (r'^login/$', 'guide.views.userlogin'),
+	(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'registration/login.html'}),
+	
+    #(r'^login/$', 'guide.views.userlogin'),
     (r'^logout/$', 'guide.views.userlogout'),
     (r'^register/', 'guide.views.register'),
     (r'^contact/', 'guide.views.contact'),
@@ -29,7 +30,7 @@ urlpatterns = patterns('',
 	(r'^market/detail/(?P<market_id>\d)', 'guide.views.market_detail'),
 	(r'^market/edit/(?P<market_id>\d)', 'guide.views.market_edit'),
 	(r'^market/$', 'guide.views.market'),
-	(r'^$', 'guide.views.index'),
+	url(r'^$', 'guide.views.index', name="home"),
 )
 
 if settings.DEBUG:
