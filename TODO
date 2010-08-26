@@ -1,12 +1,20 @@
 A list of stuff that comes up while working on the project
-
+	
 - Make complete use of generic views for most of the app
 	- Register function
-- views.py:
-	- Remove STATIC_URL
+
 - include some more frontend code (jQuery)
+
 - Redesign / Design the page
 	- logo
 	- layout
+
 - CSS tweaking
 	- table layout
+	
+	
+Maybe later:
+
+- urls.py
+	- move guide-urls to guide folder?
+	- When would that make sense?
