@@ -4,13 +4,13 @@ import os
 
 PROJECT_ROOT = os.path.dirname(__file__)
 
-# LOGIN_URL='/login'
+LOGIN_URL='/login'
+LOGIN_REDIRECT_URL='/market'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
 	('Stefan Kohler', 'stef@peekus.com'),
 )
 
