@@ -15,9 +15,9 @@ from guide.forms import RegisterForm
 
 
 def index(request):
-	return render_to_response('site/homepage.html', {
-		'STATIC_URL': settings.STATIC_URL
-	}, context_instance=RequestContext(request))
+	return render_to_response('site/homepage.html', 
+		context_instance=RequestContext(request)
+	)
 
 
 @login_required(redirect_field_name='next')
@@ -59,17 +59,15 @@ def market_edit(request, market_id):
 	else:
 		form = SupermarketForm(market)
 		return render_to_response('market/edit.html', {
-			'STATIC_URL': settings.STATIC_URL, 
-			'market': market
+			'market': market,
 		}, context_instance=RequestContext(request))
 
 
 @login_required(redirect_field_name='next')
 def market_detail(request, market_id):
 	market = Supermarket.objects.get(id=market_id)
-	return render_to_response('market/detail.html', {
-		'STATIC_URL': settings.STATIC_URL, 
-		'market': market
+	return render_to_response('market/detail.html', {		
+		'market': market,
 	}, context_instance=RequestContext(request))
 
 
@@ -112,17 +110,14 @@ def register(request):
 					user.set_password(user_pass)
 					user.save()
 					rc = RequestContext(request, c)
-					return render_to_response('registration/login.html', {
-						'STATIC_URL': settings.STATIC_URL
-					}, context_instance=RequestContext(request))
+					return render_to_response('registration/login.html', 
+						context_instance=RequestContext(request)
+					)
 	else:
 		form = RegisterForm()
 		
-	c.update({'STATIC_URL': settings.STATIC_URL, 'form': form,})
-	rc = RequestContext(request, c)
 	return render_to_response('registration/register.html', {
 		'form': form,
-		'STATIC_URL': settings.STATIC_URL
 	}, context_instance=RequestContext(request))
 
 
