@@ -79,14 +79,6 @@ def market(request):
 	}, context_instance=RequestContext(request))
 
 
-def userlogout(request):
-	logout(request)
-	rc = RequestContext(request)
-	return render_to_response('site/homepage.html', 
-		context_instance=RequestContext(request)
-	)
-
-
 def register(request):
 	c = {}
 	c.update(csrf(request))
