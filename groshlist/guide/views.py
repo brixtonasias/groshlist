@@ -80,8 +80,6 @@ def market(request):
 
 
 def register(request):
-	c = {}
-	c.update(csrf(request))
 	
 	if request.method == 'POST':
 		form = RegisterForm(request.POST)
@@ -101,10 +99,9 @@ def register(request):
 					user = User.objects.create(username=user_name)
 					user.set_password(user_pass)
 					user.save()
-					rc = RequestContext(request, c)
-					return render_to_response('registration/login.html', 
-						context_instance=RequestContext(request)
-					)
+					return render_to_response('registration/login.html', {
+						'form': LoginForm(),
+					}, context_instance=RequestContext(request))
 	else:
 		form = RegisterForm()
 		
