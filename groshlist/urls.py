@@ -17,22 +17,28 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
-
-	(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'registration/login.html'}),
+    
+    (r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'registration/login.html'}),
     (r'^logout/$', 'django.contrib.auth.views.logout_then_login'),
 
     (r'^register/', 'guide.views.register'),
-    (r'^contact/', 'guide.views.contact'),
-    (r'^imprint/', 'guide.views.imprint'),
+    #(r'^contact/', 'guide.views.contact'),
+    #(r'^imprint/', 'guide.views.imprint'),
 
-	(r'^market/create/$', 'guide.views.createmarket'),
-	(r'^market/detail/(?P<market_id>\d)', 'guide.views.market_detail'),
-	(r'^market/edit/(?P<market_id>\d)', 'guide.views.market_edit'),
-	(r'^market/$', 'guide.views.market'),
-	url(r'^$', 'guide.views.index', name="home"),
+    (r'^jquery$', 'guide.views.jquery_test'),
+    (r'^jquery_data_test$', 'guide.views.jquery_data_test'),
+
+    (r'^market/create/$', 'guide.views.createmarket'),
+    (r'^market/detail/(?P<market_id>\d)', 'guide.views.market_detail'),
+    (r'^market/edit/(?P<market_id>\d)', 'guide.views.market_edit'),
+    (r'^market/$', 'guide.views.market'),
+    url(r'^$', 'guide.views.index', name="home"),
 )
 
 if settings.DEBUG:
 	urlpatterns += patterns('',
-	        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+                (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+                    'document_root': settings.MEDIA_ROOT, 
+                    'show_indexes': True
+                }),
 	)
