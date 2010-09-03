@@ -11,7 +11,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-	('Stefan Kohler', 'stef@peekus.com'),
+    ('Stefan Kohler', 'stef@peekus.com'),
 )
 
 MANAGERS = ADMINS
@@ -73,7 +73,8 @@ SECRET_KEY = '0-3ltr%^#*zdwi2mawpx(v0n!ghrv$02@t4f5!8@!rb7ul#^vy'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    
+    #'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,11 +84,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 
-	'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 INTERNAL_IPS = (
-	'127.0.0.1',
+    '127.0.0.1',
 )
 
 DEBUG_TOOLBAR_PANELS = (
@@ -108,7 +109,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	os.path.join(PROJECT_ROOT, 'templates'),
+    os.path.join(PROJECT_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -117,13 +118,14 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-	# 3rd party apps
-	'south',
-	'debug_toolbar',
-	# own apps
-	'guide',
+    
+    # 3rd party apps
+    'south',
+    'debug_toolbar',
+    
+    # own app(s)
+    'guide',
 )
 
 try:
