@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %} My market guide - mymagui.de {% endblock %} </title>
+    <link rel="shortcut icon" href="{{ MEDIA_URL }}static/imgs/favicon.ico" type="image/x-icon"/>
+
+    <link rel="stylesheet" href="{{ MEDIA_URL }}static/css/groshlist.css" type="text/css" media="all" charset="utf-8">
+
+	<script type="text/javascript" src="{{ MEDIA_URL }}static/js/jquery-1.4.2.min.js"></script>
+
+	<script>
+	$(document).ready(function() {
+		$.get("/jquery_data_test", function(data) {
+			alert(data);
+	    });
+		
+	   	$("a").click(function(data) {
+		     alert(data);
+		});
+		
+		$.post("/jquery_data_test", { 
+		        name: "Monty", 
+		        food: "Spam" 
+		    },
+		    function(data) {
+		        alert(data);
+		    }
+		);
+		
+		
+	 });
+	 
+	</script>
+
+
+	<!--[if IE 6]>
+	<script src="{{ MEDIA_URL }}js/DD_belatedPNG_0.0.7a-min.js"></script>
+	<script>
+		DD_belatedPNG.fix('#bleeder, .logo');
+	</script>
+	<![endif]-->
+</head>
+
+
+<body>
+
+	<a href="">Link</a>
+
+</body>
+
+</html>
