@@ -20,6 +20,28 @@ def index(request):
 	)
 
 
+def jquery_test(request):
+	if request.is_ajax():
+		print "Ajax call"
+	else:
+		print "No Ajax call"
+	return render_to_response('jstest/jstest.html', context_instance=RequestContext(request))
+
+
+def jquery_data_test(request):
+	message = "No Ajax."
+        if request.is_ajax():
+		if request.method == 'GET':
+			message = "This is an XHR GET request"
+		elif request.method == 'POST':
+			message = "This is an XHR POST request"
+			# Here we can access the POST data
+			print request.POST
+		else:
+			message = "No XHR"
+	return HttpResponse(message)
+
+
 @login_required(redirect_field_name='next')
 def createmarket(request, id):
 	if request.method == 'POST':
